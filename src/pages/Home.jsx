@@ -3,12 +3,20 @@ import React from 'react'
 import Styled from 'styled-components'
 
 // components
+import Categories from '../components/Categories'
+// import EmptyState from '../components/EmptyState'
+// import FoodGrid from '../components/FoodGrid'
 import MainHead from '../components/MainHead'
+import RecipeSlide from '../components/RecipeSlide'
 
 const Home = () => {
     return (
         <StyledHome>
             <MainHead />
+            <RecipeSlide />
+            <Categories />
+            {/* <FoodGrid /> */}
+            {/* <EmptyState /> */}
         </StyledHome>
     )
 }
