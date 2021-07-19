@@ -2,29 +2,23 @@ import React from "react";
 import Styled from "styled-components";
 
 // components
-import MainHead from "../components/MainHead";
-import RecipeImage1 from "../assets/images/recipe-image-1.png";
+import Categories from '../components/Categories'
+// import EmptyState from '../components/EmptyState'
+// import FoodGrid from '../components/FoodGrid'
+import MainHead from '../components/MainHead'
+import RecipeSlide from '../components/RecipeSlide'
 
 const Home = () => {
-	return (
-		<StyledHome>
-			<MainHead />
-
-			<h5 className="header__sub-text">Recipe of the day</h5>
-			<div className="main-container">
-				<div className="recipe-image-container">
-					<img src={RecipeImage1} alt="image one" />
-					<p className="recipe-image-container__text">
-						Baked salmon with fennel <br /> & tomatoes
-					</p>
-				</div>
-
-				<div className="recipe-image-container">
-					<img src={RecipeImage1} alt="image one" />
-					<p className="recipe-image-container__text">
-						Baked salmon with fennel <br /> & tomatoes
-					</p>
-				</div>
+    return (
+        <StyledHome>
+            <MainHead />
+            <RecipeSlide />
+            <Categories />
+            {/* <FoodGrid /> */}
+            {/* <EmptyState /> */}
+        </StyledHome>
+    )
+}
 
 				<div className="recipe-image-container">
 					<img src={RecipeImage1} alt="image one" />
