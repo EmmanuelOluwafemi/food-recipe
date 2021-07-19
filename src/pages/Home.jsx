@@ -16,17 +16,13 @@ const Home = () => {
             <Categories />
             {/* <FoodGrid /> */}
             {/* <EmptyState /> */}
-        </StyledHome>
-    )
-}
 
-				<div className="recipe-image-container">
+				{/* <div className="recipe-image-container">
 					<img src={RecipeImage1} alt="image one" />
 					<p className="recipe-image-container__text">
 						Baked salmon with fennel <br /> & tomatoes
 					</p>
-				</div>
-			</div>
+				</div> */}
 		</StyledHome>
 	);
 };
