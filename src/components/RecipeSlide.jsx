@@ -9,15 +9,20 @@ import MealCard from './MealCard';
 import Axios from '../lib/Axios';
 
 const RecipeSlide = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(true);
     
     useEffect(() => {
         Axios.get('/random.php')
-        .then(response => {
-            setData(response.data);
-            console.log(data);
-        });
+        .then((response) => {
+          setData(response.data);
+          console.log(data)
+        })
+          .catch((error) => {
+          console.log(error)
+          })
+         
     }, [])
+
 
     var settings = {
         dots: false,
