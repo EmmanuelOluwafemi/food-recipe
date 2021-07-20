@@ -1,27 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import Axios from "../lib/Axios";
 
-import Styled from 'styled-components'
-import AddToWishList from './AddToWishList'
-
-// image
-import food from '../assets/food.jpg'
+import Styled from "styled-components";
+import AddToWishList from "./AddToWishList";
 
 const MealCard = () => {
-    return (
-        <StyledMeal style={{ backgroundImage: `url(${food})` }}>
-            <AddToWishList />
-            <div className="text-content">
-                Baked salmon with fennel & tomatoes
-            </div>
-        </StyledMeal>
-    )
-}
+	const [meals, setMeals] = useState([]);
 
-export default MealCard
+	useEffect(() => {
+		(async () => {
+			try {
+				const { data } = await Axios.get("/random.php");
+				setMeals(data.meals);
+			} catch (error) {
+				console.log(error);
+			}
+		})();
+	}, []);
+
+	return (
+		<div>
+			{meals.map((meal) => (
+				<StyledMeal
+					key={meal.idMeal}
+					style={{
+						backgroundImage: `linear-gradient(45deg, black, transparent), url(${meal.strMealThumb})`,
+					}}
+				>
+					<AddToWishList />
+					<div className="text-content">{meal.strMeal}</div>
+				</StyledMeal>
+			))}
+		</div>
+	);
+};
+
+export default MealCard;
 
 const StyledMeal = Styled.div`
     width: 97%;
-    min-height: 148px;
+    min-height: 200px;
     border-radius: 1rem;
     padding: 1.5rem;
     display: flex;
@@ -38,6 +56,6 @@ const StyledMeal = Styled.div`
         font-weight: 700;
         color: #fff;
         line-height: 1.5;
-        max-width: 80%;
+        /* max-width: 80%; */
     }
-`
+`;
