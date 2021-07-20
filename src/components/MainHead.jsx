@@ -1,34 +1,33 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
-import Styled from 'styled-components'
+import Styled from "styled-components";
 
 // icons
-import { RiSearch2Line } from 'react-icons/ri';
+import { RiSearch2Line } from "react-icons/ri";
 
 const MainHead = () => {
+	const [value, setValue] = useState("");
 
-    const [value, setValue] = useState('')
+	return (
+		<StyledMain>
+			<div className="text-content">
+				<h6>Hi</h6>
+				<h1>What would you like to Cook?</h1>
+			</div>
+			<div className="input-container">
+				<RiSearch2Line className="icon" />
+				<input
+					type="text"
+					placeholder="Search for a meal"
+					onChange={(e) => setValue(e.target.value)}
+					value={value}
+				/>
+			</div>
+		</StyledMain>
+	);
+};
 
-    return (
-        <StyledMain>
-            <div className="text-content">
-                <h6>Hi</h6>
-                <h1>What would you like to Cook?</h1>
-            </div>
-            <div className="input-container">
-                <RiSearch2Line className="icon" />
-                <input 
-                    type="text" 
-                    placeholder="Search for a meal"
-                    onChange={(e)=>setValue(e.target.value)}
-                    value={value}
-                />
-            </div>
-        </StyledMain>
-    )
-}
-
-export default MainHead
+export default MainHead;
 
 const StyledMain = Styled.div`
     width: 100%;
@@ -91,4 +90,4 @@ const StyledMain = Styled.div`
             font-size: 1rem;
         }
     }
-`
+`;
