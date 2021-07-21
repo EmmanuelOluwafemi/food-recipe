@@ -14,6 +14,7 @@ import {
 
 import Home from './pages/Home';
 import SingleMeal from './pages/SingleMeal';
+import MealResults from './pages/MealResults';
 import Header from "./components/Header";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Switch>
         <Route exact path="/meal/:id" component={SingleMeal} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/search" component={MealResults} />
       </Switch>
     </Router>
   );
