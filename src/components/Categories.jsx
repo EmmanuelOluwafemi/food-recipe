@@ -70,6 +70,7 @@ const StyledCategories = Styled.div`
     .grid-sub-container {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
 `;

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 import Styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 // icons
 import { RiSearch2Line } from "react-icons/ri";
 
 const MainHead = () => {
 	const [value, setValue] = useState("");
+	const history = useHistory();
 
 	return (
 		<StyledMain>
@@ -15,7 +17,10 @@ const MainHead = () => {
 				<h1>What would you like to Cook?</h1>
 			</div>
 			<div className="input-container">
-				<RiSearch2Line className="icon" />
+				<RiSearch2Line
+					className="icon"
+					onClick={() => history.push(`/search?query=${value}`)}
+				/>
 				<input
 					type="text"
 					placeholder="Search for a meal"
@@ -77,6 +82,7 @@ const StyledMain = Styled.div`
         .icon {
             font-size: 1rem;
             color: #000;
+            cursor: pointer;
         }
 
         input {
