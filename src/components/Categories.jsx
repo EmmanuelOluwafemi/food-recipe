@@ -18,7 +18,7 @@ const CategoryCard = () => {
 	}, []);
 
 	return (
-		<div className="grid-sub-container">
+		<div className="grid">
 			{meals.map((meal) => (
 				<StyledCategoryCard key={meal.idCategory}>
 					<div className="img-container">
@@ -35,7 +35,7 @@ const Categories = () => {
 	return (
 		<StyledCategories>
 			<div className="heading">Categories</div>
-			<div className="grid">
+			<div>
 				<CategoryCard />
 			</div>
 		</StyledCategories>
@@ -56,26 +56,27 @@ const StyledCategories = Styled.div`
     }
 
     .grid {
-        /* display: grid;
+        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(113px, 1fr));
         grid-gap: 1rem;
         justify-content: flex-start;
 
         @media (max-width: 576px) {
             grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-            grid-gap: .5rem;
-        } */
+            grid-gap: .3rem;
+        }
     }
 
-    .grid-sub-container {
+    /* .grid-sub-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
+    } */
 
 `;
 const StyledCategoryCard = Styled.div`
-    width: 15%;
+    width: 100;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,7 +86,6 @@ const StyledCategoryCard = Styled.div`
     cursor: pointer;
     /* max-width: 113px; */
     padding: 0.5rem;
-    margin: 0.5rem;
     transition: box-shadow 0.4s ease-in-out;
 
     &:hover {
@@ -93,14 +93,19 @@ const StyledCategoryCard = Styled.div`
     }
 
     .img-container {
-        width: 100%;
-        height: 80px;
+        width: 90px;
+        height: 90px;
         border-radius: 50%;
         margin-bottom: 10px;
         overflow: hidden;
 
+        @media (max-width: 768px) {
+            width: 80px;
+            height: 80px;
+        }
+
         img {
-            object-fit: cover;
+            /* object-fit: cover; */
             width: 100%;
         }
     }
